@@ -18,13 +18,13 @@ To be able to perform the experiments, the following extra steps will be require
 2. Uncompress the dowloadad file: ```tar -xvf sf110-evospex.tar.gz```
 3. Set the environment variable SF110SRC to the uncompressed directory:
 ```
-	cd sf110-evospex
-	export SF110SRC=$(pwd)
+  cd sf110-evospex
+  export SF110SRC=$(pwd)
 ```
 4. Compile the project that you will want to analyze. For instance, to compile project 2_a4j: 
 ```
-        cd $SF110SRC/2_a4j
-        ant compile
+  cd $SF110SRC/2_a4j
+  ant compile
 ```
 
 5. Install Daikon following the installation instructions from it's official [website](https://plse.cs.washington.edu/daikon/download/doc/daikon.html#Installation)

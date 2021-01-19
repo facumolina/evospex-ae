@@ -4,7 +4,7 @@ Download the artifact from [here](https://mega.nz/file/JW4TFK6Q#V2S3UiSIqy-bzHpc
 
 ## Installation
 
-No installation step is required, our tool EvoSpex is already provided as a jar file with all the required dependencies. Having installed the tools mentioned in file [REQUIREMENTS.md](REQUIREMENTS.md) is enough. 
+No installation step is required, our tool EvoSpex is already provided as a jar file with all the required dependencies. Having installed the tools mentioned in file [REQUIREMENTS.md](REQUIREMENTS.md) is enough to run it. 
 
 Run the tool on the paper motivating example to verify that everything works as expected:
 

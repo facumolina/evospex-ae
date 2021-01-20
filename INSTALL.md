@@ -1,10 +1,18 @@
 ## Download
 
-Download the artifact from [here](https://mega.nz/file/JW4TFK6Q#V2S3UiSIqy-bzHpcDFAab76TXIygtvipMDHMEzrF_cQ).
+1. Download the artifact from [here](https://mega.nz/file/JW4TFK6Q#V2S3UiSIqy-bzHpcDFAab76TXIygtvipMDHMEzrF_cQ).
+
+2. Uncompress the downloaded file: ```tar -xvf evospex.tar.gz```
+
+3. Set the environment variable EVOSPEX to the uncompressed directory:
+```
+  cd evospex
+  export EVOSPEX=$(pwd)
+```
 
 ## Installation
 
-No installation step is required, our tool EvoSpex is already provided as a jar file with all the required dependencies. Having installed the tools mentioned in file [REQUIREMENTS.md](REQUIREMENTS.md) is enough to run it. 
+No installation step is required, our tool EvoSpex is already provided as a jar file containing all the required dependencies. Having installed the tools mentioned in file [REQUIREMENTS.md](REQUIREMENTS.md) is enough to run it. 
 
 Run the tool on the paper motivating example to verify that everything works as expected:
 
@@ -29,4 +37,9 @@ To be able to perform the experiments, the following extra steps will be require
 
 5. Install Daikon following the installation instructions from it's official [website](https://plse.cs.washington.edu/daikon/download/doc/daikon.html#Installation)
 
-
+6. Compile OASIs (the tool that will be used for Oracle Assessment):
+```
+  cd $EVOSPEX/experiments/oasis
+  javac -cp "lib/*" src/* -d bin/
+```
+ 

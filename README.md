@@ -41,14 +41,13 @@ This execution will run Daikon performing the three usual steps described in thi
 
 **Quality of the postconditions produced by each technique** 
 
-In order to analyze the quality of the postconditions produced by the techniques, the inferred assertions needs to be collected and manually placed in the corresponding Java files that will later be the input for OASIs. For instance, a class analyzed for project *2_a4j* is *net.kencochrane.a4j.beans.FullProduct*, and the classes of interest of such a case can be listed by doing `ls $SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProduct*`:
-```
-src/main/java/net/kencochrane/a4j/beans/FullProduct.java
-src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java
-src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java
-```
+First, the generated postconditions should be manually placed in the corresponding Java files that will later be the input for OASIs, following the steps described in this [file](extra/COLLECTING_INFERRED_POSTCONDITIONS.md). Since such step maybe confusing, the Java files already contains the assertions from which the quality was analyzed for the paper, sou you can continue with the next instructions. 
+Now, to analyze the postconditions  we need to provide four arguments:
+* the current project,
+* the class to be analyzed,
+* the technique (EvoSpex or Daikon) from which the oracles were computed, 
+* the mode (FP for false positives - FN for false negatives).
 
-The class FullProduct is the one from which the postconditions were computed. And the two extra classes FullProductEvoSpex and FullProductDaikon are a copy of the original one, but containing the assertions learned by the corresponding tools. 
 
 ### Reproducing manually written contracts
 

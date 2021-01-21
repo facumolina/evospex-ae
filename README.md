@@ -41,14 +41,46 @@ This execution will run Daikon performing the three usual steps described in thi
 
 **Quality of the postconditions produced by each technique** 
 
-First, the generated postconditions should be manually placed in the corresponding Java files that will later be the input for OASIs, following the steps described in this [file](extra/COLLECTING_INFERRED_POSTCONDITIONS.md). Since such step maybe confusing, the Java files already contains the assertions from which the quality was analyzed for the paper, sou you can continue with the next instructions. 
-Now, to analyze the postconditions  we need to provide four arguments:
-* the current project,
-* the class to be analyzed,
-* the technique (EvoSpex or Daikon) from which the oracles were computed, 
-* the mode (FP for false positives - FN for false negatives).
+First, the generated postconditions should be manually placed in the corresponding Java files that will later be the input for OASIs, following the steps described in this [file](extra/COLLECTING_INFERRED_POSTCONDITIONS.md). Since such steps maybe confusing, the Java files already contains the assertions for which the quality was analyzed in the paper, sou you can continue with the next instructions.
+ 
+Now, to analyze the quality of the postconditions we need to provide four arguments:
+* the current project
+* the class to be analyzed
+* the technique (EvoSpex or Daikon) from which the oracles were computed 
+* the mode (FP for false positives - FN for false negatives)
 
+So, for example, to detect False Positives in the oracles produced by EvoSpex on class FullProduct of project *2_a4j*, from the folder *$EVOSPEX* run:
+
+```
+  ./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct EvoSpex FP
+```
+
+and for postconditions produced by Daikon:
+
+```
+  ./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct Daikon FP
+```
+
+This scripts will try to find False Postivies for the postconditions learned by the corresponding technique. It is important to remark that the assertions in the files corresponding to each technique, namely *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* and *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java*, were alreay filtered and do not contain false positives. To perform the analyses from scratch, you should perform the following steps:
+
+1. Edit the file *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* by including the removed false positives that are described as comments in each of the analyzed methods into the assert statement at the end of method. For instance, the assert statement of method *addAccessory(MiniProduct product)*
+
+```
+assert(
+  old_thissimilarItems == this.similarItems &&
+  ExpressionEvaluator.evaluateSetMembership(product,"this . accessories",this) &&
+  this.details != null
+);
+```
+
+2. Detect False Positives with command `./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct EvoSpex FP`
+
+3. If False Positives are detected, remove the assertion causing it and perform step 2 until no more False Positives are detected. If no False Positives are detected, continue to step 4. 
+
+4. Detect False Negatives with command `./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct EvoSpex FN`
+
+**Note**: exactly the same process should be performed for the file FullProductDaikon, and for every class analyzed for prohect *2_a4j*. At this point, the analysis regarding the quality of the postconditions finishes. 
 
 ### Reproducing manually written contracts
 
-This is experiment analyzes the reproduction of manually written contractos. 
+This experiment analyzes the reproduction of manually written contractos. 

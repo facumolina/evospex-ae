@@ -43,4 +43,4 @@ To reproduce the experiments in the paper, the following additional steps are re
   javac -cp "lib/*" src/* -d bin/
 ```
  
-You can now continue with the steps described in [README.md] to reproduce the experiments.
+You can now continue with the steps described in [README.md](README.md) to reproduce the experiments.

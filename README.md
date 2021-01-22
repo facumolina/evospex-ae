@@ -83,7 +83,7 @@ assert(
 
 **Note**: exactly the same process should be performed for the file *FullProductDaikon.java*, and for every class analyzed for project *2_a4j*. 
 
-Finally, the way in which we compute the results of Table II in the paper is as follows. As we compute the False Positives and False Negatives, we update the corresponding row in the file *$EVOSPEX/experiments/sf110/2_a4j/oasis-res.csv*. Such file contains, contains one row that describes for each 3-tuple Class-Method-Technique the amount of produced assertions by the technique, the amount of false positives, and the amount of false negatives. Once the iterative process of computing False Positives and False Negatives, the file *oasis-res.csv* is in its final state, and the paper numbers can be computed by:
+Finally, the way in which we compute the results of Table II in the paper is as follows. As we compute the False Positives and False Negatives, we update the corresponding row in the file *$EVOSPEX/experiments/sf110/2_a4j/oasis-res.csv*. Such file contains one row that describes for each 3-tuple Class-Method-Technique the amount of produced assertions by the technique, the amount of false positives, and the amount of false negatives. Once the iterative process of computing False Positives and False Negatives, the file *oasis-res.csv* is in its final state, and the paper numbers can be computed by:
 
 ```
 cd $EVOSPEX/experiments/sf110

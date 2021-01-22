@@ -85,4 +85,4 @@ assert(
 
 ### Reproducing contracts for contract-equipped classes
 
-This experiment analyzes the reproduction of manually written contractos. 
+This experiment analyzes the reproduction of manually written contracts. 

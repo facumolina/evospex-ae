@@ -41,11 +41,11 @@ The script will run EvoSpex 10 times for each of the analyzed methods of the pro
 
 This execution will run Daikon performing the three usual steps described in this [example](http://plse.cs.washington.edu/daikon/download/doc/daikon.html#StackAr-example). As a result, postconditions for each of the target methods will be generated and saved in the folder *experiments/sf110/2_a4j/daikon-results*.
 
-**Quality of the postconditions produced by each technique** 
+**Assessing the Quality of the Postconditions** 
 
-First, the generated postconditions should be manually placed in the corresponding Java files that will later be the input for OASIs, following the steps described in this [file](extra/COLLECTING_INFERRED_POSTCONDITIONS.md). Since such steps maybe confusing, the Java files already contains the assertions for which the quality was analyzed in the paper, sou you can continue with the next instructions.
+Once the postconditions produced by EvoSpex and Daikon are obtained, we are ready to assess their quality, using OASIs. The generated postconditions have to be placed in the corresponding Java files, that will be later on fed to OASIs, following the steps described [here](extra/COLLECTING_INFERRED_POSTCONDITIONS.md). Since this requires a manual effort, for convenience we already placed the assertions obtained in previous runs of the tools in the corresponding Java files, so that the user can continue with the subsequent instructions. The user is welcome to take the outputs of Daikon and EvoSpex and insert the obtained assertions in the corresponding files, as described in [here](extra/COLLECTING_INFERRED_POSTCONDITIONS.md).
  
-Now, to analyze the quality of the postconditions we need to provide four arguments:
+To analyze the quality of the postconditions using OASIs, four arguments need to be provided:
 * the current project
 * the class to be analyzed
 * the technique (EvoSpex or Daikon) from which the oracles were computed 
@@ -63,7 +63,7 @@ and for postconditions produced by Daikon:
   ./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct Daikon FP
 ```
 
-This scripts will try to find False Postivies for the postconditions learned by the corresponding technique. It is important to remark that the assertions in the files corresponding to each technique, namely *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* and *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java*, were alreay filtered and do not contain false positives. To perform the analyses from scratch, you should perform the following steps:
+This scripts will try to find False Positives for the postconditions learned by the corresponding technique. It is important to remark that the assertions in the files corresponding to each technique, namely *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* and *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java*, are already filtered and do not contain false positives. To perform the analyses from scratch, you should perform the following steps:
 
 1. Edit the file *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* by including the removed false positives that are described as comments in each of the analyzed methods into the assert statement at the end of method. For instance, the assert statement of method *addAccessory(MiniProduct product)*
 
@@ -81,8 +81,8 @@ assert(
 
 4. Detect False Negatives with command `./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct EvoSpex FN`
 
-**Note**: exactly the same process should be performed for the file FullProductDaikon, and for every class analyzed for prohect *2_a4j*. At this point, the analysis regarding the quality of the postconditions finishes. 
+**Note**: exactly the same process should be performed for the file FullProductDaikon, and for every class analyzed for project *2_a4j*. At this point, the analysis regarding the quality of the postconditions finishes. 
 
-### Reproducing manually written contracts
+### Reproducing contracts for contract-equipped classes
 
 This experiment analyzes the reproduction of manually written contractos. 

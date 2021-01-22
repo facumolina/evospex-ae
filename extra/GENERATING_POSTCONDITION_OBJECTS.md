@@ -6,12 +6,12 @@ As described in [README.MD](README.md), EvoSpex recieves as input sets of valid 
 
 1. Follow the steps in [INSTALL.MD](INSTALL.md) to install EvoSpex and SF110 (don't forget to set environment variables EVOSPEX and SF110SRC!).
 
-2. Download the artifact from [here](REPLACE WITH MEGA LINK).
+2. Download the artifact from [here](https://mega.nz/file/rhoSXa6C#RSzPhxWFhSZSHNQlWMThV35vx9v_ZjsdWqG60m1ZlmA).
 
-3. Set the environment variable EVOSPEXTG to the uncompressed directory:
+3. Set the environment variable EVOSPEXOG to the uncompressed directory:
 ```
-  cd test-generation 
-  export EVOSPEXTG=$(pwd)
+  cd object-generation 
+  export EVOSPEXOG=$(pwd)
 ```
 
 ## Generation of objects by means of bounded exhaustive test generation

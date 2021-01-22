@@ -8,9 +8,15 @@ As described in [README.MD](README.md), EvoSpex recieves as input sets of valid 
 
 2. Download the artifact from [here](https://mega.nz/file/rhoSXa6C#RSzPhxWFhSZSHNQlWMThV35vx9v_ZjsdWqG60m1ZlmA).
 
-3. Set the environment variable EVOSPEXOG to the uncompressed directory:
+3. Uncompress the artifact
 ```
-  cd object-generation 
+  tar -xzvf object-generation.tgz
+
+```
+
+4. Set the environment variable EVOSPEXOG to the uncompressed directory:
+```
+  cd object-generation
   export EVOSPEXOG=$(pwd)
 ```
 

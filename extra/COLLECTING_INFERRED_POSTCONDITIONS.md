@@ -11,6 +11,23 @@ The class FullProduct is the one from which the postconditions were computed. An
 
 ### Collecting postconditions inferred by EvoSpex
 
-### Collecting postconditions inferred by Daikon
+Assuming that the command `./experiments/sf110/run-evospex-project.sh 2_a4j 10` has been successfully executed, to collect the postconditions the user should move to the folder containing the results:
+```
+cd $EVOSPEX/experiments/sf110/2_a4j/evospex-results
+```
+The directory will contain one folder for each analyzed class, being the folder of interest the one with name *FullProduct*. Such folder will contain 11 files for each method, 10 txt files containing the logs of each single execution and 1 csv file containing the summary of the 10 executions. To determine what is the most common postcondition inferred by the algorithm through the 10 executions for method, let's say *addAccesory* perform the next steps:
+```
+cd $EVOSPEX/experiments/
+python3.7 process-csv.py sf110/2_a4j/evospex-results/FullProduct/addAccesory.csv
+```
+
+The python script will list the executions containing the *Best* postconditions (w.r.t the fitness function) and then the executions containing the most Common postcondition (the one that was inferred ). Here, just look at the list of the most common postcondition, take any of the execution numbers (column exec_number) on that list, and open the txt containing the logs of such execution. For instance, if the exex_number is 2, open the file *sf110/2_a4j/evospex-results/FullProduct/addAccesory-2.txt*. At the end will be the postcondition that needs to be collected:
+```
+  assert(this.details != null);
+  assert(old_this.similarItems == this.similarItems);
+  assert(ExpressionEvaluator.evaluateSetMembership(arg0,"this . accessories",this));
+```
+
+### Collecting postconditions inferred by Daikoni
 
 

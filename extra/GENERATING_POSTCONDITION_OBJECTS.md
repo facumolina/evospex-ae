@@ -46,10 +46,10 @@ $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests
 
 
 ```
-# ls /Users/pponzio/workspaces/icse21-ae/evospex-ae/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest*
+# ls $EVOSPEX//src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest*
 
-/Users/pponzio/workspaces/icse21-ae/evospex-ae/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest0.java
-/Users/pponzio/workspaces/icse21-ae/evospex-ae/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTestDriver.java
+$EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest0.java
+$EVOSPEX/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTestDriver.java
 ```
 
 

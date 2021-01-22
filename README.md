@@ -81,7 +81,23 @@ assert(
 
 4. Detect False Negatives with command `./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct EvoSpex FN`
 
-**Note**: exactly the same process should be performed for the file FullProductDaikon, and for every class analyzed for project *2_a4j*. At this point, the analysis regarding the quality of the postconditions finishes. 
+**Note**: exactly the same process should be performed for the file *FullProductDaikon.java*, and for every class analyzed for project *2_a4j*. 
+
+Finally, the way in which we compute the results of Table II in the paper is as follows. As we compute the False Positives and False Negatives, we update the corresponding row in the file *$EVOSPEX/experiments/sf110/2_a4j/oasis-res.csv*. Such file contains, contains one row that describes for each 3-tuple Class-Method-Technique the amount of produced assertions by the technique, the amount of false positives, and the amount of false negatives. Once the iterative process of computing False Positives and False Negatives, the file *oasis-res.csv* is in its final state, and the paper numbers can be computed by:
+
+```
+cd $EVOSPEX/experiments/sf110
+python3.7 print-paper-results.py 2_a4j/oasis-res.csv
+``` 
+
+This command will output the rows reported in Table II for project *2_a4j*:
+```
+Methods,Technique,Assertions,FPs,FPs%,FNs
+23,Daikon,257,59,22.96,9
+23,EvoSpex,60,5,8.33,5
+``` 
+
+When performing all these steps for every SF110 analyzed the project, the experiment is finished. 
 
 ### Reproducing contracts for contract-equipped classes
 

@@ -18,11 +18,15 @@ As described in [README.MD](README.md), EvoSpex recieves as input sets of valid 
 
 Here we are going to generate sets of pre/post state pairs for the *Artists* class of SF110's *2_a4j* (for this class we considered methods *getArtist* and *getArtistArray*). For this, we run 
 
+```
 ./generate-objects/generate_objects_sf110_class.sh 2_a4j Artists
+```
 
 The generated objects are stored in:
 
+```
 $EVOSPEX/src/test/resources/sf110/<project>/<method>/<scope>/objects
+```
 
 For the above run, this is instanced to (notice that we use a scope of 2 in SF110 experiments):
 
@@ -36,7 +40,10 @@ in0.xml  mut0.xml  mut1.xml  mutations0.txt  out0.xml  out1.xml
 
 Finally, the tests produced (bounded exhaustively) to generate the above tuples can be found in:
 
+```
 $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests
+```
+
 
 ```
 # ls /Users/pponzio/workspaces/icse21-ae/evospex-ae/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest*

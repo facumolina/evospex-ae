@@ -99,6 +99,35 @@ Methods,Technique,Assertions,FPs,FPs%,FNs
 
 When performing all these steps for every SF110 analyzed the project, the experiment is finished. 
 
-### Reproducing contracts for contract-equipped classes
+### Reproducing manually written Contracts
 
-This experiment analyzes the reproduction of manually written contracts. 
+This experiment analyzes the ability of our tool to reproduce manually written contracts. The subjects of this experiment were:
+* a set of classes equipped with contracts for the verification of object oriented programs, originally written in the Eiffel programming language and used for verification using the [AutoProof](http://comcom.csail.mit.edu/autoproof/) tool:
+```
+composite
+doublylinkedlistnode
+map
+ringbuffer
+```
+
+* a set of synthesized implementations using the [Cozy](https://cozy.uwplse.org/) tool:
+```
+polyupdate
+structure
+listcomp
+minfinder
+maxbag
+``` 
+
+For this experiment, EvoSpex was executed for each case study until it reached 30 generations or a 10 minute timeout was fulfilled. This execution was repeated 10 times, and then the postcondition that repeated the most number of times was selected. 
+
+For instance, to run this experiment for the *doublylinkedlistnode* case study, you can run the following commands:
+```
+cd $EVOSPEX/experiments
+./experiments/doublylinkedlistnode-all.sh 10
+```
+
+For the remaining cases, just run the corresponding script present in the *experiments* folder in the same way. For every case, the results will be stored in the folder *experiments/results*. For instance, for the case *doublylinkedlistnode* the output will be in the folder *experiments/results/doublylinkedlistnode*. 
+
+Finally, collect the average specification as described in [here](extra/COLLECTING_INFERRED_POSTCONDITIONS.md) and manually compare the inferred postcondition with the one present in the Java file equipped with contracts. Such a Java files are present in the folder *$EVOSPEX/src/examples/casestudies/eiffel* or *$EVOSPEX/src/examples/casestudies/cozy*, respectivelly. 
+ 

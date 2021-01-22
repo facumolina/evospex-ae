@@ -11,7 +11,7 @@ The class FullProduct is the one from which the postconditions were computed. An
 
 ### Postconditions inferred by EvoSpex
 
-Assuming that the command `./experiments/sf110/run-evospex-project.sh 2_a4j 10` has been successfully executed, to collect the postconditions the user should move to the folder containing the results:
+Assuming that the command `./experiments/sf110/run-evospex-project.sh 2_a4j 10` has been successfully executed, to collect the postconditions go to the folder containing the results:
 ```
 cd $EVOSPEX/experiments/sf110/2_a4j/evospex-results
 ```
@@ -31,6 +31,8 @@ Assertions:
   );
 ```
 
+**NOTE**: arg*n* needs to be replaced by the *nth* method argument name. 
+
 Once identified, just copy the postcondition assertion as the final statement of method *addAccessory* in class *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java*. And then, compile the project again: 
 ```
 cd $SF110SRC/2_a4j/
@@ -40,4 +42,26 @@ ant compile
 Finally, perform the mentioned steps for every method and the class *FullProduct* will be ready for quality analysis with the technique EvoSpex. 
 
 ### Postconditions inferred by Daikon
+
+Assuming that the command `./experiments/sf110/run-daikon-project.sh 2_a4j` has been successfully executed, to collect the postconditions go to the folder containing the results:
+```
+cd $EVOSPEX/experiments/sf110/2_a4j/daikon-results
+```
+The directory will contain one folder for each analyzed class, being the folder of interest the one with name *FullProduct*. That folder will contain one extra folder for each analyzed method. To determine the postcondition for a method, let's say again *addAccessory*, move to the folder *addAccesory* and do `cat addAccessory.java.out`. Then, the assertions following the line matching ":::EXIT" are the inferred postcondition:
+```
+this.details == \old(this.details)
+this.accessories == \old(this.accessories)
+this.similarItems == \old(this.similarItems)
+(daikon.Quant.pairwiseEqual(this.similarItems, \old(this.similarItems))) || !((this.similarItems != null) && (\old(this.similarItems) != null))
+(daikon.Quant.size(this.accessories)-1 == \old(daikon.Quant.size(this.accessories))) || !((this.accessories != null) && (\old(this.accessories) != null))
+(daikon.Quant.size(this.accessories) >= 1) || !(this.accessories != null)
+```
+
+Similarly to the EvoSpex case, once identified, just copy the postcondition assertion as the final statement of method *addAccessory* in class *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java*. And then, compile the project again:
+```
+cd $SF110SRC/2_a4j/
+ant compile
+```
+
+Finally, perform the mentioned steps for every method and the class *FullProduct* will be ready for quality analysis with the technique Daikon.
 

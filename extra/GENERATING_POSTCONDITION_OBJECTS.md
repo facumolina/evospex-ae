@@ -34,7 +34,7 @@ The generated objects are stored in:
 $EVOSPEX/src/test/resources/sf110/<project>/<method>/<scope>/objects
 ```
 
-For the above run, this is instanced to (notice that we use a scope of 2 in SF110 experiments):
+For the above run, the objects' path is (notice that we use a scope of 2 in SF110 experiments):
 
 ```
 # ls $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/objects
@@ -42,14 +42,15 @@ For the above run, this is instanced to (notice that we use a scope of 2 in SF11
 in0.xml  mut0.xml  mut1.xml  mutations0.txt  out0.xml  out1.xml
 ```
 
-*getArtist* has one input object (the state of the receiver before executing the method), and two output objects, the receiver (after executing the method) and the return value (of Artist type). The generated inputs are stored in file in0.xml, and the generated outputs in files out0.xml (receiver), out1.xml (return value). Position *i* of each file (all have the same length) contains a single valid input/output tuple *(i0,o0,o1)* for *getArtist*. mut0.xml and mut1.xml correspond to mutations performed either to the receiver (an object in out0.xml) or the return value (an object in out1.xml). Thus, position *i* of in0.xml, mut0.xml and mut1.xml contains an tuple *(i0,m0,m1)* that corresponds to an invalid execution escenario for *getArtist*) (i.e. with one mutated object).
+Method *getArtist* has one input object (the state of the receiver before executing the method), and two output objects, the receiver (after executing the method) and the return value (of String[] type). The generated inputs for the method (receivers) are stored in file *in0.xml*, and the generated outputs in files *out0.xml* (possibly updated receiver), *out1.xml* (return value). Position *i* of each file contains a single valid input/output tuple *(i0,o0,o1)* for *getArtist*. (All files have the same length). *mut0.xml* and *mut1.xml* correspond to mutations performed either to the receiver (an object in *out0.xml*) or the return value (an object in *out1.xml*). Thus, position *i* of *in0.xml*, *mut0.xml* and *mut1.xml* contains an tuple *(i0,m0,m1)* that corresponds to an invalid execution escenario for *getArtist* (i.e. with one mutated object).
 
-Finally, the tests produced (bounded exhaustively) to generate the above tuples can be found in:
+Finally, the tests produced (following a bounded exhaustive approach) to generate the execution scenarios for *getArtist* described above can be found in:
 
 ```
 $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests
 ```
 
+As our tool is a customized Randoop version (modified to perform bounded exhuastive generation), tests are generated for the JUnit testing framework:
 
 ```
 # ls $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest*
@@ -62,7 +63,7 @@ $EVOSPEX/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/ke
 
 ## Generation of objects for contract reproduction case studies
 
-In this section, we deal with the generation of objects for classes that had manually written contracts. As an example, we are going to generate sets of pre/post state pairs for Eiffel's *DoublyLinkedListNode* class. The generation will be performed for scope 3 (at most 3 nodes in the lists). To achieve this, run the following command:
+In this section, we deal with the generation of objects for learning invariants for classes with existing, manually written contracts. As an example, we are going to generate sets of pre/post state pairs for Eiffel's *DoublyLinkedListNode* class. The generation will be performed for scope 3 (at most 3 nodes in the lists). To achieve this, run the following command:
 
 ```
 cd object-generation
@@ -76,7 +77,7 @@ insert_right\(casestudies.eiffel.DoublyLinkedListNode\)
 remove\(\)
 ```
 
-Resulting objects will be stored (in a similar format to that explained above for SF110) in folder:
+Resulting objects will be stored (in a similar format to that explained above for SF110 experiments) in folder:
 
 ```
 $EVOSPEX/src/test/resources/objects/<case study>/<method>/<scope>
@@ -88,13 +89,13 @@ For *insert_right*, objects are saved in:
 $EVOSPEX/src/test/resources/objects//DoublyLinkedListNode/insert_right\(casestudies.eiffel.DoublyLinkedListNode\)/3/
 ```
 
-The tests generated that produced the objects are saved in:
+JUnit tests generated to produce the execution scenarios for *insert_right* are saved in:
 
 ```
 $EVOSPEX/src/test/java
 ```
 
-For *insert_right*, suites are stored in:
+The path for *insert_right* tests is:
 
 ```
 # ls $EVOSPEX/src/test/java/casestudies/eiffel/DoublyLinkedListNodeinsert_right3S*

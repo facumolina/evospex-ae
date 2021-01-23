@@ -1,35 +1,60 @@
 ## Download
 
-1. Download the artifact from [here](https://mega.nz/file/JW4TFK6Q#V2S3UiSIqy-bzHpcDFAab76TXIygtvipMDHMEzrF_cQ).
+1. Download the artifact from [DOI](http://doi.org/10.5281/zenodo.4458256)
 
-2. Uncompress the downloaded file: ```tar -xvf evospex.tar.gz```
-
-3. Set the environment variable EVOSPEX to the uncompressed directory:
+2. Uncompress the downloaded file: ```tar -xvf evospex-all.tar.gz```, which will create the following files:
 ```
+  evospex-all/evospex.tar.gz
+  evospex-all/sf110-evospex.tgz
+  evospex-all/object-generation.tgz
+  Dockerfile
+```
+
+## Installation with Docker
+
+1. Get [Docker](https://www.docker.com/)
+2. Build and run the docker image:
+```
+  cd evospex-all
+  docker build -t evospex .
+  docker run -it evospex
+```
+
+**NOTE**: the build process will perform all the steps described below in the manual installation. The final image size may be 13GB. 
+
+## Manual installation
+
+Uncompress the file evospex-all/evospex.tar.gz and just set the environment variable EVOSPEX to the uncompressed directory:
+```
+  cd evospex-all
+  tar -xvf evospex.tar.gz
   cd evospex
   export EVOSPEX=$(pwd)
 ```
 
-## Installation
-
-No installation step is required. EvoSpex is provided as a jar bundle containing all the required dependencies. Having the tools mentioned in [REQUIREMENTS.md](REQUIREMENTS.md) installed, is enough to run EvoSpex. 
+EvoSpex is provided as a jar bundle containing all the required dependencies. Having the tools mentioned in [REQUIREMENTS.md](REQUIREMENTS.md) installed, is enough to run EvoSpex. 
 
 Run the tool using the paper's motivating example, to verify that everything is working correctly:
 
 `./evospex.sh AvlTreeList src/test/resources/objects/AvlTreeList/add\\\(int\,java.lang.Object\\\)/3/`
 
-## Experiments
+**Steps for the Experiments**
 
 To reproduce the experiments in the paper, the following additional steps are required. 
 
-1. Download the selected subjects from the [SF110-benchmark](https://www.evosuite.org/experimental-data/sf110/) from [here](https://mega.nz/file/TkJziSKI#y7c_8cJaTnfhW8NBlO_hbWKiWMqqrBD4iIivnII5ycM). 
-2. Uncompress the downloaded file: ```tar -xvf sf110-evospex.tar.gz```
-3. Set the environment variable SF110SRC to the uncompressed directory:
+1. Uncompress the selected subjects from the [SF110-benchmark](https://www.evosuite.org/experimental-data/sf110/):
+```
+  cd evospex-all
+  tar -xvf sf110-evospex.tar.gz
+```
+
+2. Set the environment variable SF110SRC to the uncompressed directory:
 ```
   cd sf110-evospex
   export SF110SRC=$(pwd)
 ```
-4. Compile the project that you would like to analyze (this step must be performed on each project). For instance, to compile project 2_a4j, do as follows: 
+
+3. Compile the project that you would like to analyze (this step must be performed on each project). For instance, to compile project 2_a4j, do as follows: 
 ```
   cd $SF110SRC/2_a4j
   ant compile

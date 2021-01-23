@@ -63,7 +63,7 @@ and for postconditions produced by Daikon:
   ./experiments/sf110/run-oasis-class.sh 2_a4j FullProduct Daikon FP
 ```
 
-This scripts will try to find False Positives for the postconditions learned by the corresponding technique. It is important to remark that the assertions in the files corresponding to each technique, namely *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* and *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java*, are already filtered and do not contain false positives. To perform the analyses from scratch, you should perform the following steps:
+These scripts will try to find False Positives for the postconditions learned by the corresponding technique. It is important to remark that the assertions in the files corresponding to each technique, namely *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* and *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductDaikon.java*, are already filtered and do not contain false positives. To perform the analyses from scratch, you should perform the following steps:
 
 1. Edit the file *$SF110SRC/2_a4j/src/main/java/net/kencochrane/a4j/beans/FullProductEvoSpex.java* by including the removed false positives that are described as comments in each of the analyzed methods into the assert statement at the end of method. For instance, the assert statement of method *addAccessory(MiniProduct product)*
 

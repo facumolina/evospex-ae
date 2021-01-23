@@ -20,7 +20,7 @@ As described in [README.MD](README.md), EvoSpex recieves as input sets of valid 
   export EVOSPEXOG=$(pwd)
 ```
 
-## Generation of objects by means of bounded exhaustive test generation
+## Generation of objects for the SF110 case studies
 
 Here we are going to generate sets of pre/post state pairs for the *Artists* class of SF110's *2_a4j* (for this class we considered methods *getArtist* and *getArtistArray*). For this, we run 
 
@@ -52,11 +52,76 @@ $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests
 
 
 ```
-# ls $EVOSPEX//src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest*
+# ls $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest*
 
 $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTest0.java
 $EVOSPEX/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTestDriver.java
 ```
 
-
 **NOTE**: the instructions in this section assumes that the project being analyzed is *2_a4j*. The classes and methods to analyze for project *2_a4j* are listed in file *$EVOSPEX/src/test/resources/sf110/2_a4j/target-classes.txt*. To analyze other projects, just use any of the names listed when doing `ls $EVOSPEX/src/test/resources/sf110`. Again, the classes and methods to analyze for a particular project are listed in the file *target-classes.txt* of the corresponding folder. 
+
+
+## Generation of objects for contract reproduction case studies
+
+In this section, we deal with the generation of objects for classes that had manually written contracts. As an example, we are going to generate sets of pre/post state pairs for Eiffel's *DoublyLinkedListNode* class. The generation will be performed for scope 3 (at most 3 nodes in the lists). To achieve this, run the following command:
+
+```
+cd object-generation
+./generate-objects-datastr/generate_objects.sh casestudies.eiffel.DoublyLinkedListNode 3
+```
+
+The methods under analysis for this class are:
+
+```
+insert_right\(casestudies.eiffel.DoublyLinkedListNode\)
+remove\(\)
+```
+
+Resulting objects will be stored (in a similar format to that explained above for SF110) in folder:
+
+```
+$EVOSPEX/src/test/resources/objects/<case study>/<method>/<scope>
+```
+
+For *insert_right*, objects are saved in:
+
+```
+$EVOSPEX/src/test/resources/objects//DoublyLinkedListNode/insert_right\(casestudies.eiffel.DoublyLinkedListNode\)/3/
+```
+
+The tests generated that produced the objects are saved in:
+
+```
+$EVOSPEX/src/test/java
+```
+
+For *insert_right*, suites are stored in:
+
+```
+# ls /Users/pponzio/workspaces/icse21-ae/evospex-ae/evospex/src/test/java/casestudies/eiffel/DoublyLinkedListNodeinsert_right3S*
+
+$EVOSPEX/src/test/java/casestudies/eiffel/DoublyLinkedListNodeinsert_right3Suite.java
+$EVOSPEX/src/test/java/casestudies/eiffel/DoublyLinkedListNodeinsert_right3Suite0.java
+```
+
+The remaining case studies supported for these experiments, i.e., the feasible values for the first parameter of the *generate_objects.sh* script, are listed below. We ran all these experiments with a scope of 3.
+
+```
+# Motivating example
+casestudies.motivation.AvlTreeList
+
+# Cozy case studies:
+casestudies.cozy.Polyupdate
+casestudies.cozy.Structure
+casestudies.cozy.ListComp02 
+casestudies.cozy.MinFinder
+casestudies.cozy.WordBag
+
+# Eiffel case studies:
+casestudies.eiffel.DoublyLinkedListNode
+casestudies.eiffel.Map
+casestudies.eiffel.RingBuffer 
+casestudies.eiffel.Composite
+```
+
+

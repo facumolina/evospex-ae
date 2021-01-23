@@ -129,5 +129,5 @@ cd $EVOSPEX/experiments
 
 For the remaining cases, just run the corresponding script present in the *experiments* folder in the same way. For every case, the results will be stored in the folder *experiments/results*. For instance, for the case *doublylinkedlistnode* the output will be in the folder *experiments/results/doublylinkedlistnode*. 
 
-Finally, collect the most common postcondition as described in [here](extra/COLLECTING_INFERRED_POSTCONDITIONS.md) and manually compare the inferred postcondition with the one present in the Java file equipped with contracts. Such a Java files are present in the folder *$EVOSPEX/src/examples/casestudies/eiffel* or *$EVOSPEX/src/examples/casestudies/cozy*, respectivelly. 
+Finally, collect the most common postcondition as described in [here](extra/COLLECTING_INFERRED_POSTCONDITIONS.md) and manually compare the inferred postcondition with the one present in the Java file (equipped with contracts). These Java files are available in the folder *$EVOSPEX/src/examples/casestudies/eiffel* or *$EVOSPEX/src/examples/casestudies/cozy*, respectively. 
  

@@ -67,5 +67,19 @@ To reproduce the experiments in the paper, the following additional steps are re
   cd $EVOSPEX/experiments/oasis
   javac -cp "lib/*" src/* -d bin/
 ```
+
+**Steps for test generation Experiments**
+
+1. Uncompress the test generation tool
+```
+  cd evospex-all
+  tar -xzvf object-generation.tgz
+```
+
+2. Set the environment variable EVOSPEXOG to the uncompressed directory:
+```
+  cd object-generation
+  export EVOSPEXOG=$(pwd)
+```
  
 You can now continue with the steps described in [README.md](README.md) to reproduce the experiments.

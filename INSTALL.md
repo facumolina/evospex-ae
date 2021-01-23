@@ -68,7 +68,13 @@ To reproduce the experiments in the paper, the following additional steps are re
   javac -cp "lib/*" src/* -d bin/
 ```
 
+7. Install the Pandas Python libarary:
+```
+  pip3 install pandas
+```
+
 **Steps for test generation Experiments**
+
 
 1. Uncompress the test generation tool
 ```

@@ -7,7 +7,7 @@ University of Río Cuarto and CONICET, Argentina.
 
 ## Artifact Description
 
-EvoSpex is a tool based on a genetic algorithm for learning postcondition assertions of Java methods. A postcondition assertion for a Java method is an expression that captures properties of the method's executions. 
+EvoSpex is a tool based on a genetic algorithm for learning postcondition assertions of Java methods and it is publicly available at [DOI](https://zenodo.org/record/4458256#.YAyzdpMzagQ). A postcondition assertion for a Java method is an expression that captures properties of the method's executions. 
 
 Given a Java method, to produce its postcondition EvoSpex recieves as input sets of valid and invalid pre/post state pairs (i.e., state pairs that represent, and do not represent, the method’s current behavior, respectively). Valid pre/post state pairs are obtained by generating executions of the method under analysis, while invalid ones are obtained by mutating the valid pairs. Given these inputs, EvoSpex uses a genetic algorithm to explore the state space of candidate postconditions with the goal of obtaining one that is satisfied by the valid pre/post pairs, while leaving out the invalid ones.
 

@@ -6,7 +6,7 @@ As described in [README.MD](README.md), EvoSpex recieves as input sets of valid 
 
 1. Follow the steps in [INSTALL.MD](INSTALL.md) to install EvoSpex and SF110 (don't forget to set environment variables EVOSPEX and SF110SRC!).
 
-2. Download the artifact from [here](https://mega.nz/file/z4Bx3CqI#JFuPyHmZadCHlyYN-c_F7mYN74JvhTZ3etKbyDKzL_8).
+2. Download the artifact from [here](https://mega.nz/file/W9QHSABY#tEwNKJUBwp3ZvoDN-nzpkJraqvNfucO9l6kNcstocek).
 
 3. Uncompress the artifact
 ```
@@ -34,7 +34,7 @@ The generated objects are stored in:
 $EVOSPEX/src/test/resources/sf110/<project>/<method>/<scope>/objects
 ```
 
-For the above run, the objects' path is (notice that we use a scope of 2 in SF110 experiments):
+For the above run, the objects' path is (notice that we use a scope of 2 here):
 
 ```
 # ls $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/objects

@@ -42,7 +42,7 @@ $EVOSPEX/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochran
 $EVOSPEX/evospex/src/test/resources/sf110/2_a4j/Artists/getArtist/2/tests/net/kencochrane/a4j/beans/RegressionTestDriver.java
 ```
 
-**NOTE**: File *object-generation/README-sf110.txt* contains a description of the available projects and classes for this experiment. File *$EVOSPEX/src/test/resources/sf110/<project>/target-classes.txt* lists analysed methods for *project*.
+**NOTE**: File *object-generation/README-sf110.txt* contains a description of the available projects and classes for this experiment. File *$EVOSPEX/src/test/resources/sf110/project/target-classes.txt* lists analysed methods for *project*.
 
 ## Generation of objects for contract reproduction case studies
 

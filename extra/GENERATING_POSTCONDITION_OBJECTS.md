@@ -1,12 +1,13 @@
 ## Generation of object instances for learning postconditions
 
-As described in [README.MD](README.md), EvoSpex recieves as input sets of valid and invalid pre/post state pairs (i.e., state pairs that represent, and do not represent, the method’s current behavior, respectively). Valid pre/post state pairs are obtained by generating executions of the method under analysis, while invalid ones are obtained by mutating the valid pairs. Here we describe how to reproduce the generation of pre/post state pairs.
+As described in [README.MD](../README.md), EvoSpex recieves as input sets of valid and invalid pre/post state pairs (i.e., state pairs that represent, and do not represent, the method’s current behavior, respectively). Valid pre/post state pairs are obtained by generating executions of the method under analysis, while invalid ones are obtained by mutating the valid pairs. Here we describe how to reproduce the generation of pre/post state pairs.
 
 ## Generation of objects for the SF110 case studies
 
-Here we are going to generate sets of pre/post state pairs for the *Artists* class of SF110's *2_a4j* (for this class we considered methods *getArtist* and *getArtistArray*). For this, we run 
+Here we are going to generate sets of pre/post state pairs for the *Artists* class of SF110's *2_a4j* (for this class we considered methods *getArtist* and *getArtistArray*). For this, we run:
 
 ```
+cd object-generation
 ./generate-objects/generate_objects_sf110_class.sh 2_a4j Artists
 ```
 
